@@ -4,8 +4,6 @@ import Authenticator from '../services/Authenticator';
 import { IdGenerator } from '../services/IdGenerator';
 import RecipeDB from '../database/RecipeDataBase';
 
-
-
 export const CreateRecipe = async(req: Request, res: Response) => {
     try{
         const token = req.headers.authorization as string;

@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import RecipeDB from '../database/RecipeDatabase';
 import Authenticator from '../services/Authenticator';
 
 

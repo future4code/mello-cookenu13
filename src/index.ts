@@ -1,19 +1,17 @@
 import dotenv from "dotenv";
 import express from "express";
-import { AddressInfo } from "net";
-import signUp from "./endpoints/signUp"
-import login from "./endpoints/login";
-import getRecipesFeed from "./endpoints/getRecipesFeed";
-import getOwnProfile from "./endpoints/getOwnProfile";
-import getUserById from "./endpoints/getUserById";
+import { AddressInfo } from "net"
 import { CreateRecipe } from "./endpoints/createRecipe";
 import { GetRecipe } from "./endpoints/GetRecipe";
 import { CreateFollow } from "./endpoints/createFollow";
 import { RemoveFollow } from "./endpoints/removeFollow";
+import signUp from "./endpoints/signUp";
+import login from "./endpoints/login";
+import getOwnProfile from "./endpoints/getOwnProfile";
+import getRecipesFeed from "./endpoints/getRecipesFeed";
+import getUserById from "./endpoints/getUserById";
 
 dotenv.config();
-
-dotenv.config()
 
 const app = express()
 app.use(express.json())
@@ -37,4 +35,4 @@ const server = app.listen(process.env.PORT || 3000, () => {
   } else {
     console.error(`Failure upon starting server`)
   }
-})
+});

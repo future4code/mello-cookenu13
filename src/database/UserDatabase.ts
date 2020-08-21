@@ -53,6 +53,7 @@ export default class UserDB extends BaseDatabase{
         createdAt: moment.unix(recipe.createdAt/100).format("DD/MM/YYYY")
       }
     })
+
   
     await this.destroyConnection()
     
