@@ -1,6 +1,6 @@
 import { Request, Response} from 'express';
 import Authenticator from '../services/Authenticator';
-import FollowDB from '../database/FollowDataBase';
+import FollowDB from '../database/FollowDatabase';
 
 export const RemoveFollow = async(req: Request, res: Response) => {
     try{
