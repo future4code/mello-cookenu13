@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
-import { Authenticator } from '../services/Authenticator';
-import { RecipeDataBase } from '../database/RecipeDataBase';
+import Authenticator from '../services/Authenticator';
+
 
 export const GetRecipe = async (req: Request, res: Response) => {
     try {
         const id = req.params.id as string;
 
-        const recipeDataBase = new RecipeDataBase();
+        const recipeDataBase = new RecipeDB();
         const recipe = await recipeDataBase.GetRecipeById(id);
 
         res.status(200).send({

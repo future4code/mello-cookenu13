@@ -1,8 +1,10 @@
 import { Request, Response} from 'express';
 import moment from 'moment';
+import Authenticator from '../services/Authenticator';
 import { IdGenerator } from '../services/IdGenerator';
-import { RecipeDataBase } from '../database/RecipeDataBase';
-import { Authenticator } from '../services/Authenticator';
+import RecipeDB from '../database/RecipeDataBase';
+
+
 
 export const CreateRecipe = async(req: Request, res: Response) => {
     try{
@@ -15,14 +17,13 @@ export const CreateRecipe = async(req: Request, res: Response) => {
         }
 
         const idGenerator = new IdGenerator();
-        const id = idGenerator.GenerateID();
+        const id = idGenerator.generateID();
 
-        const auth = new Authenticator();
-        const userID = auth.GetData(token);
-        const recipeToken = auth.GenerateToken({id});
+        const userId = Authenticator.getTokenData(token)
+        const recipeToken = Authenticator.generateToken({id});
 
-        const recipeDataBase = new RecipeDataBase();
-        await recipeDataBase.CreateRecipe(id, title, description, moment().toString(), userID.id);
+        const recipeDatabase = new RecipeDB();
+        await recipeDatabase.CreateRecipe(id, title, description, moment().toString(), userId.id);
 
         res.status(200).send({
             message: "Recipe Created",
