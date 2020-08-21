@@ -1,6 +1,7 @@
 import { Request, Response} from 'express';
-import { Authenticator } from '../services/Authenticator';
-import { FollowDataBase } from '../database/FollowDataBase';
+import Authenticator from '../services/Authenticator';
+import FollowDB from '../database/FollowDatabase';
+
 
 export const CreateFollow = async(req: Request, res: Response) => {
     try{
@@ -11,10 +12,9 @@ export const CreateFollow = async(req: Request, res: Response) => {
             throw new Error('Missing Parameter ' + followed_id);
         }
 
-        const auth = new Authenticator();
-        const authData = auth.GetData(token);
+        const authData = Authenticator.getTokenData(token)
 
-        const followDataBase = new FollowDataBase();
+        const followDataBase = new FollowDB();
         await followDataBase.CreateFollow(authData.id, followed_id);
 
         res.status(200).send({

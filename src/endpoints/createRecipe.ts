@@ -1,7 +1,7 @@
 import { Request, Response} from 'express';
 import moment from 'moment';
 import { IdGenerator } from '../services/IdGenerator';
-import { RecipeDataBase } from '../database/RecipeDataBase';
+import { RecipeDataBase } from '../database/RecipeDatabase';
 import { Authenticator } from '../services/Authenticator';
 
 export const CreateRecipe = async(req: Request, res: Response) => {
