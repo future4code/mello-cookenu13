@@ -11,6 +11,12 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+
+app.post('/recipe', CreateRecipe);
+app.get('/recipe/:id', GetRecipe);
+app.post('/user/follow', CreateFollow);
+app.post('/user/unfollow', RemoveFollow);
+
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
     const address = server.address() as AddressInfo;
@@ -20,7 +26,3 @@ const server = app.listen(process.env.PORT || 3003, () => {
   }
 });
 
-app.post('/recipe', CreateRecipe);
-app.get('/recipe/:id', GetRecipe);
-app.post('/user/follow', CreateFollow);
-app.post('/user/unfollow', RemoveFollow);
