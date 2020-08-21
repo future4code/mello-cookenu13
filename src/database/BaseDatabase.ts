@@ -1,5 +1,4 @@
-import knex from "knex";
-
+import knex from "knex"
 export default abstract class BaseDB {
   
   private static connection: knex | null = null

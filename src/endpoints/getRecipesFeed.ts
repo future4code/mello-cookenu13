@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import Authenticator from "../services/Authenticator";
 import UserDB from "../database/UserDatabase";
+import RecipeDB from "../database/RecipeDatabase";
 
 async function getRecipesFeed(req: Request, res: Response) {
   try {
@@ -13,7 +14,7 @@ async function getRecipesFeed(req: Request, res: Response) {
       throw new Error('Faça o login primeiro')
     }
 
-    const feed = await new recipesDB().getFeed(userData.id)
+    const feed = await new UserDB().getFeed(userData.id)
 
     res.status(200).send({
       recipes: feed

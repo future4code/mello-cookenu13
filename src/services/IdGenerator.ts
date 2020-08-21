@@ -1,7 +1,6 @@
-import { v4 } from "uuid";
-
-export default abstract class IdGenerator {
-  static generate(): string {
-    return v4()
-  }
+import { v4 } from 'uuid';
+export class IdGenerator {
+    public generateID(): string {
+        return v4();
+    }
 }
