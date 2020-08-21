@@ -1,8 +1,8 @@
 import { Request, Response} from 'express';
 import moment from 'moment';
 import Authenticator from '../services/Authenticator';
-import { IdGenerator } from '../services/IdGenerator';
-import RecipeDB from '../database/RecipeDataBase';
+import IdGenerator from '../services/IdGenerator';
+import RecipeDB from '../database/RecipeDatabase';
 
 export const CreateRecipe = async(req: Request, res: Response) => {
     try{
@@ -14,13 +14,12 @@ export const CreateRecipe = async(req: Request, res: Response) => {
             throw new Error('Missing Parameter ' + title + " " + description);
         }
 
-        const idGenerator = new IdGenerator();
-        const id = idGenerator.generateID();
+        const id =  IdGenerator.generate();
 
         const userId = Authenticator.getTokenData(token)
         const recipeToken = Authenticator.generateToken({id});
 
-        const recipeDatabase = new RecipeDB();
+        const recipeDatabase = new RecipeDB()
         await recipeDatabase.CreateRecipe(id, title, description, moment().toString(), userId.id);
 
         res.status(200).send({

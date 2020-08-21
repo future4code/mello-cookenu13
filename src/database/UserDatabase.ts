@@ -1,7 +1,7 @@
 import BaseDatabase from './BaseDatabase';
-import moment from 'moment'
+import moment from 'moment' 
+import FollowDB from './FollowDatabase';
 import RecipeDB from './RecipeDatabase';
-import FollowDB from './FollowDataBase';
 
 export default class UserDB extends BaseDatabase{
     private static TABLE_NAME: string = 'User_Cookenu';
