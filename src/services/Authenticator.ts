@@ -1,8 +1,9 @@
-import * as jwt from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken'
 
 interface AuthenticationData {
   id: string
 }
+
 export default abstract class Authenticator {
 
   static generateToken(input: AuthenticationData) {

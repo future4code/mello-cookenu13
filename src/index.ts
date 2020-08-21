@@ -13,8 +13,8 @@ import getUserById from "./endpoints/getUserById";
 
 dotenv.config();
 
-const app = express();
-app.use(express.json());
+const app = express()
+app.use(express.json())
 
 app.post('/signup', signUp)
 app.post('/login', login)
@@ -27,11 +27,12 @@ app.get('/recipe/:id', GetRecipe);
 app.post('/user/follow', CreateFollow);
 app.post('/user/unfollow', RemoveFollow);
 
-const server = app.listen(process.env.PORT || 3003, () => {
-  if (server) {
+
+const server = app.listen(process.env.PORT || 3000, () => {
+  if(server) {
     const address = server.address() as AddressInfo;
-    console.log(`Server is running in http://localhost:${address.port}`);
+    console.log(`Server is running in http://localhost:${address.port}`)
   } else {
-    console.error(`Failure upon starting server.`);
+    console.error(`Failure upon starting server`)
   }
 });

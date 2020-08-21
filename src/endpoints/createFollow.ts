@@ -2,7 +2,6 @@ import { Request, Response} from 'express';
 import Authenticator from '../services/Authenticator';
 import FollowDB from '../database/FollowDatabase';
 
-
 export const CreateFollow = async(req: Request, res: Response) => {
     try{
         const token = req.headers.authorization as string;

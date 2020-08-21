@@ -1,5 +1,5 @@
 import BaseDB from './BaseDatabase';
-import { Moment } from 'moment';
+import moment from 'moment';
 
 export default class RecipeDB extends BaseDB{
     static TABLE_NAME: string = 'Recipe_Cookenu';

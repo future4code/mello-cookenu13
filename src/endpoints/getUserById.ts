@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
-import UserDB from "../database/UserDatabase"
 import Authenticator from "../services/Authenticator"
+import UserDB from "../database/UserDatabase"
 
 async function getUserById (req: Request, res: Response) {
   try{

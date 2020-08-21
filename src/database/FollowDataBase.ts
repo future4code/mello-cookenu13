@@ -1,6 +1,7 @@
-import BaseDb from './BaseDatabase';
+import BaseDB from './BaseDatabase';
 
-export default class FollowDB extends BaseDb{
+export default class FollowDB extends BaseDB{
+
     static TABLE_NAME: string = 'Follow_Cookenu';
 
     public async CreateFollow (follower_id: string, followed_id: string) :Promise<void>{
